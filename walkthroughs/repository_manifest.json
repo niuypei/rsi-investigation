@@ -1,0 +1,122 @@
+{
+  "checked_on": "2026-09-16",
+  "repositories": [
+    {
+      "path": "/Users/nyp/Documents/RSI-investigation/HarnessX",
+      "origin": "git@github.com:Darwin-Agent/HarnessX.git",
+      "commit": "bf5f199ee65034d55db0c536e582f1e7c8abf669",
+      "branch": "main",
+      "status": "?? docs/code-architecture-analysis.zh-CN.md",
+      "license_files": [
+        "HarnessX/LICENSE"
+      ]
+    },
+    {
+      "path": "/Users/nyp/Documents/RSI-investigation/sia",
+      "origin": "git@github.com:hexo-ai/sia.git",
+      "commit": "7fd04d07bd2f47a110115674432b73622ebf7455",
+      "branch": "main",
+      "status": "",
+      "license_files": [
+        "sia/LICENSE"
+      ]
+    },
+    {
+      "path": "/Users/nyp/Documents/RSI-investigation/continual-harness",
+      "origin": "git@github.com:sethkarten/continual-harness.git",
+      "commit": "bbab97ad73e460b7cd7c08527d10ced30cc03fbe",
+      "branch": "main",
+      "status": "",
+      "license_files": [
+        "continual-harness/LICENSE"
+      ]
+    },
+    {
+      "path": "/Users/nyp/Documents/RSI-investigation/HarnessForge",
+      "origin": "https://github.com/mingju-c/HarnessForge.git",
+      "commit": "05b3ecadb3c9a7a938f75129ea22b8f2b36cf289",
+      "branch": "main",
+      "status": "",
+      "license_files": []
+    },
+    {
+      "path": "/Users/nyp/Documents/RSI-investigation/reskill",
+      "origin": "https://github.com/amazon-science/reskill.git",
+      "commit": "a25e2534fcdef182f6684e4d24fa8a916e085ba5",
+      "branch": "main",
+      "status": "",
+      "license_files": [
+        "reskill/LICENSE"
+      ]
+    },
+    {
+      "path": "/Users/nyp/Documents/RSI-investigation/MetaClaw",
+      "origin": "https://github.com/aiming-lab/MetaClaw.git",
+      "commit": "922caf3a1cd093fb316e95183a8acc8aa47b3b21",
+      "branch": "main",
+      "status": "",
+      "license_files": [
+        "MetaClaw/LICENSE"
+      ]
+    },
+    {
+      "path": "/Users/nyp/Documents/RSI-investigation/reskill/verl",
+      "origin": "https://github.com/volcengine/verl.git",
+      "commit": "d62da4950573d7a4b7ef2362337952e7ab59e78d",
+      "branch": "",
+      "status": "",
+      "license_files": [
+        "reskill/verl/LICENSE"
+      ]
+    }
+  ],
+  "snapshots": [
+    {
+      "path": "code-snapshots/continual-harness-2a74aa2",
+      "source_repository": "continual-harness",
+      "source_ref": "refs/remotes/origin/feature/generalized-harness",
+      "commit": "2a74aa2bcf17d019844a8b86e3748ed566aede69",
+      "kind": "selected text files, not full runnable tree",
+      "provenance": "code-snapshots/continual-harness-2a74aa2/SNAPSHOT_PROVENANCE.md"
+    },
+    {
+      "path": "code-snapshots/continual-harness-bbab97a/red_init",
+      "source_repository": "continual-harness",
+      "commit": "bbab97ad73e460b7cd7c08527d10ced30cc03fbe",
+      "kind": "historical JSON text extracted from repository archive; not this session rollout"
+    }
+  ],
+  "unconfirmed_repositories": [
+    {
+      "work": "Co-Harness",
+      "paper": "https://arxiv.org/html/2607.22688v1",
+      "author_page": "https://tengxiao1.github.io/",
+      "status": "No verified official repository found in this investigation"
+    },
+    {
+      "work": "HASE",
+      "paper": "https://arxiv.org/html/2607.03935v1",
+      "status": "No verified official repository found in this investigation; paper code snippets are not a complete repository"
+    }
+  ],
+  "official_repository_discovery": [
+    {
+      "work": "HarnessForge",
+      "paper": "https://arxiv.org/html/2606.01779v1",
+      "repository": "https://github.com/mingju-c/HarnessForge",
+      "verification": "Visited paper, followed code link, cloned repository"
+    },
+    {
+      "work": "ReSkill",
+      "paper": "https://arxiv.org/html/2606.01619v2",
+      "repository": "https://github.com/amazon-science/reskill",
+      "verification": "Visited paper, followed code link, cloned repository and pinned verl submodule"
+    },
+    {
+      "work": "MetaClaw",
+      "paper": "https://arxiv.org/html/2603.17187v1",
+      "repository": "https://github.com/aiming-lab/MetaClaw",
+      "verification": "Visited paper, followed code link, cloned repository"
+    }
+  ]
+}

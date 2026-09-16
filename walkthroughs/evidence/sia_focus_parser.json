@@ -1,0 +1,72 @@
+{
+  "scope": "Only real CLI parser executed; no orchestrator, model or training",
+  "commit": "7fd04d07bd2f47a110115674432b73622ebf7455",
+  "cases": [
+    {
+      "options": [],
+      "focus": "harness",
+      "exit_code": 0
+    },
+    {
+      "options": [
+        "--focus",
+        "harness"
+      ],
+      "focus": "harness",
+      "exit_code": 0
+    },
+    {
+      "options": [
+        "--focus",
+        "weights"
+      ],
+      "focus": "weights",
+      "exit_code": 0
+    },
+    {
+      "options": [
+        "--focus",
+        "harness",
+        "--focus",
+        "weights"
+      ],
+      "focus": "weights",
+      "exit_code": 0
+    },
+    {
+      "options": [
+        "--focus",
+        "weights",
+        "--focus",
+        "harness"
+      ],
+      "focus": "harness",
+      "exit_code": 0
+    },
+    {
+      "options": [
+        "--focus",
+        "harness",
+        "weights"
+      ],
+      "exit_code": 2,
+      "error": "sia: error: unrecognized arguments: weights"
+    },
+    {
+      "options": [
+        "--focus",
+        "harness,weights"
+      ],
+      "exit_code": 2,
+      "error": "sia run: error: argument --focus: invalid choice: 'harness,weights' (choose from 'harness', 'weights')"
+    },
+    {
+      "options": [
+        "--harness",
+        "--weights"
+      ],
+      "exit_code": 2,
+      "error": "sia: error: unrecognized arguments: --harness --weights"
+    }
+  ]
+}

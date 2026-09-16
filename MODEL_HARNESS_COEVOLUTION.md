@@ -1,6 +1,6 @@
 # 模型与 Harness 协同演进调研：八项工作
 
-整理日期：2026-09-14。本文合并已有调研总览与协同流程示例，范围为 HarnessX、SIA、Continual Harness、HarnessForge、Co-Harness、HASE、ReSkill、MetaClaw。材料以已访问的原始论文为依据；论文版本及作者信息见文末。
+整理日期：2026-09-14；2026-09-16 补充公开代码核查与逐项目 walkthrough，见第 8 节。本文合并已有调研总览与协同流程示例，范围为 HarnessX、SIA、Continual Harness、HarnessForge、Co-Harness、HASE、ReSkill、MetaClaw。第 1–7 节以已访问的原始论文为依据；代码实现证据另列，不能将论文流程直接视为当前公开代码已复现。
 
 ## 1. 核心结论
 
@@ -53,7 +53,7 @@
 
 ### HarnessX 的代码证据限定
 
-此前本地代码审计的快照为 `bf5f199ee65034d55db0c536e582f1e7c8abf669`。其中 Harness 演化与 Slime/veRL 训练分属不同路径，尚未发现把两者自动交替编排的顶层闭环。因此，本文的共同更新结论来自论文，不能表述为已经通过该快照完整复现，也不能把该提交认定为论文实验使用的提交。见[对应上游代码快照](https://github.com/Darwin-Agent/HarnessX/blob/bf5f199ee65034d55db0c536e582f1e7c8abf669/README.md)及[本地架构与代码审计](HarnessX/docs/code-architecture-analysis.zh-CN.md)。后者是本次调研形成的分析材料，不是上游作者的实验报告。
+此前本地代码审计的快照为 `bf5f199ee65034d55db0c536e582f1e7c8abf669`。其中 Harness 演化与 Slime/veRL 训练分属不同路径，尚未发现把两者自动交替编排的顶层闭环。因此，本文的共同更新结论来自论文，不能表述为已经通过该快照完整复现，也不能把该提交认定为论文实验使用的提交。见[对应上游代码快照](https://github.com/Darwin-Agent/HarnessX/blob/bf5f199ee65034d55db0c536e582f1e7c8abf669/README.md)及[本地架构与代码审计](research/harnessx/CODE_ARCHITECTURE_ANALYSIS.md)。后者是本次调研形成的分析材料，不是上游作者的实验报告。
 
 ## 4. 用具体任务串起协同流程
 
@@ -243,3 +243,30 @@ SIA 的 Feedback-Agent、HarnessX 的 AEGIS 等负责提出或选择改进；它
 [S6]: https://arxiv.org/html/2607.03935v1
 [S7]: https://arxiv.org/html/2606.01619v2
 [S8]: https://arxiv.org/html/2603.17187v1
+
+## 8. 公开代码核查与 Walkthrough（2026-09-16）
+
+**六项工作取得官方公开源码：三项复用本地已有仓库，三项前轮 clone。Co-Harness、HASE 尚未找到能够确认归属的官方仓库。**后两项是本次检索结果，不是对代码一定未公开的断言。统一入口、commit、许可证、验证范围与阅读顺序见 [Walkthrough 总索引](walkthroughs/README.md)。
+
+| 工作 | 本地处理与源码阅读入口 | 与前述论文机制的对照 |
+|---|---|---|
+| HarnessX | 复用 `HarnessX/`；[代码 walkthrough](walkthroughs/HARNESSX_CODE_WALKTHROUGH.md) | GAIA 的多轮 Harness 演化能静态串联，Slime/veRL 为独立路径；尚未找到把共享批次、候选 Harness 和训练后模型自动连接起来的顶层循环。 |
+| SIA | 复用 `sia/`；[代码 walkthrough](walkthroughs/SIA_CODE_WALKTHROUGH.md) | README 报告 W+H 组合实验，论文实验先改 Harness、停滞后训练；本轮用 LawBench id=0 追踪程序、评分和文件修改。公开 main 的 focus 分支固定，实验选择器、训练数据到新模型再回接的完整映射未定位；不能用 CLI 限制否定 W+H。 |
+| Continual Harness | 以已有实验分支摘录串联协同流程，main 差异单列；[代码 walkthrough](walkthroughs/CONTINUAL_HARNESS_CODE_WALKTHROUGH.md) | 实验分支在游戏窗口内编辑 Harness，窗口后以评分和教师纠正构建文本标签，再做 LoRA SFT；未见 soft-target loss。跨窗口 Harness 继承、adapter 保存/选择存在明确核查缺口。 |
+| HarnessForge | 前轮 clone `HarnessForge/`；[代码 walkthrough](walkthroughs/HARNESSFORGE_CODE_WALKTHROUGH.md) | 候选包生成、验证、筛选、数据整理与训练工具可读，但主要通过独立命令连接；发布的 policy 为指针而非模型权重，自动父模型继承与部署链未闭合。根代码许可证未找到。 |
+| Co-Harness | [来源核查与待补路线](walkthroughs/CO_HARNESS_CODE_WALKTHROUGH.md) | 论文和已核查作者主页未提供可确认代码入口；无法把 HarnessCritic、SFT 和下一轮映射为实际函数。 |
+| HASE | [来源核查与待补路线](walkthroughs/HASE_CODE_WALKTHROUGH.md) | 论文附录有局部代码片段，但未找到可确认的完整官方工程；不能由片段补出沙箱、训练和阶段接纳的实现链。 |
+| ReSkill | 前轮 clone `reskill/` 及固定 veRL 子模块；[代码 walkthrough](walkthroughs/RESKILL_CODE_WALKTHROUGH.md) | 调用顺序为 rollout → 技能记录/决定/提案 → GRPO 更新；新技能首次影响后续 rollout，拒绝技能版本不回滚模型。ScienceWorld 默认配置和测试中途恢复存在缺口；论文任务清单不直接等于当前仓库支持清单。 |
+| MetaClaw | 前轮 clone `MetaClaw/`；[代码 walkthrough](walkthroughs/METACLAW_CODE_WALKTHROUGH.md) | 训练后的 sampler 会接回后续请求；但当前入口未保证论文所述的严格 support/query 隔离：手动入口先训练再用同批失败样本演化，API 演化与 trainer 的 generation 基线也未完整衔接。云端训练内部与本地接口证据分别记录。 |
+
+本次 walkthrough 优先使用仓内实际题目、脚本、测试或历史记录。SIA 本轮采用 LawBench id=0（前轮 GPQA 检查仅保留其原有证据范围），HarnessForge 采用 ToolHop 原始 id=161，Continual Harness 采用真实 Red 历史按键记录并另读实验训练分支。这些材料不自动构成某一条样本从失败、编辑、入训到提升的完整运行日志。
+
+本轮没有进行模型训练或论文收益复现。已执行的有限检查（例如 SIA 评分函数/CLI、HarnessForge 工具与评分函数）在各文档中单独说明；未运行的测试只用于解释源码定义的预期。所有“未找到”“未闭合”的结论均限定在索引记录的代码快照和本次已核查入口。
+
+上述 walkthrough 已按完整协同流程重写：每份先定义对象与类，再说明任务执行、结果评价、成败分析、修改、候选接纳、训练数据、参数更新和下一轮生效；环节顺序以各项目实际调用为准。统一比较见[总索引第 4–5 节](walkthroughs/README.md)。本次文档重写只复核源码和引用，前述局部执行结果来自前轮，没有重新运行模型或训练。
+
+SIA 补充说明：README 明确列出 SIA-W+H。第 8 节的单值 `--focus` 与固定模式结论仅适用于已读公开 CLI，不否定该实验设置。W+H 实验到当前入口的完整映射尚不明确，详见 [SIA 对照说明](walkthroughs/SIA_CODE_WALKTHROUGH.md)。
+
+本轮进一步补齐了 Harness 的具体修改操作和模型更新的双向触发关系：新增/替换/删除什么、何时生效、谁启动训练、新权重怎样产生下一次诊断依据。逐项覆盖与缺口见[十项核查表](walkthroughs/REWRITE_COVERAGE.md)。
+
+其余七篇现已按已确认的 SIA 标准，从全篇重写调用、等待、返回和触发关系，并配流程图；两项无官方源码的工作仍仅描述论文协议。此次保留 SIA 正文和原始代码基线，详细范围见[本轮校验](walkthroughs/evidence/other_projects_call_chain_validation.json)。

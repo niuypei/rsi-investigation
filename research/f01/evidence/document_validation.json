@@ -1,0 +1,92 @@
+{
+  "checked_at_utc": "2026-09-16T03:32:24.819891+00:00",
+  "scope": "F01 documentation integrity, source baselines and bounded-check provenance; not full application tests",
+  "documents": [
+    {
+      "path": "OPENJIUWEN_F01_DEEP_DIVE.md",
+      "line_count": 915,
+      "local_link_occurrences": 377,
+      "fences": 32
+    },
+    {
+      "path": "OPENJIUWEN_F01_F08_CODE_WALKTHROUGH.md",
+      "line_count": 152,
+      "local_link_occurrences": 90,
+      "fences": 8
+    },
+    {
+      "path": "OPENJIUWEN_F01_HARNESS_ITERATION.md",
+      "line_count": 287,
+      "local_link_occurrences": 35,
+      "fences": 24
+    },
+    {
+      "path": "OPENJIUWEN_F01_CODE_REFERENCE.md",
+      "line_count": 446,
+      "local_link_occurrences": 135,
+      "fences": 18
+    },
+    {
+      "path": "research/f01/00_READING_MAP.md",
+      "line_count": 56,
+      "local_link_occurrences": 13,
+      "fences": 2
+    },
+    {
+      "path": "research/f01/01_REQUEST_EXECUTION.md",
+      "line_count": 273,
+      "local_link_occurrences": 123,
+      "fences": 8
+    },
+    {
+      "path": "research/f01/02_EVIDENCE_SCORING.md",
+      "line_count": 93,
+      "local_link_occurrences": 34,
+      "fences": 4
+    },
+    {
+      "path": "research/f01/03_DIAGNOSIS_MODIFICATION.md",
+      "line_count": 234,
+      "local_link_occurrences": 85,
+      "fences": 10
+    },
+    {
+      "path": "research/f01/04_ACCEPT_PUBLISH_INSTALL.md",
+      "line_count": 212,
+      "local_link_occurrences": 117,
+      "fences": 6
+    },
+    {
+      "path": "research/f01/05_VALIDATION_FINDINGS.md",
+      "line_count": 47,
+      "local_link_occurrences": 4,
+      "fences": 2
+    },
+    {
+      "path": "research/f01/README.md",
+      "line_count": 11,
+      "local_link_occurrences": 4,
+      "fences": 0
+    }
+  ],
+  "repositories": [
+    {
+      "path": "agent-core",
+      "commit": "13d226d91ccc1ff4c041e984fb6aa90de6c5e0ff",
+      "expected_commit": "13d226d91ccc1ff4c041e984fb6aa90de6c5e0ff",
+      "status": ""
+    },
+    {
+      "path": "jiuwenswarm",
+      "commit": "f29c060cee90aef10e46b2a3646fe3628f60ea7c",
+      "expected_commit": "f29c060cee90aef10e46b2a3646fe3628f60ea7c",
+      "status": ""
+    }
+  ],
+  "errors": [],
+  "main_json_examples_parsed": 4,
+  "bounded_check_source_hashes_verified": 7,
+  "main_local_link_occurrences": 377,
+  "all_local_link_occurrences": 1017,
+  "result": "pass"
+}

@@ -1,0 +1,109 @@
+{
+  "scope": "Original pure functions and one original coroutine with controlled inputs; not project pytest or end-to-end validation",
+  "python": "3.9.6 (default, Apr  7 2026, 02:38:40) \n[Clang 21.0.0 (clang-2100.0.123.102)]",
+  "source_sha256": {
+    "agent-core/openjiuwen/rsi/harness_rsi/evaluator/judger/scoring.py": "562029ceafd4be74dc0a5be84359d43ee387f3be2b1fdbd10dfee5788ef27eef",
+    "agent-core/openjiuwen/rsi/harness_rsi/evaluator/judger/base.py": "829681d8556c4def02e4ed47b6faca76e5bd5ce597974d12e882e2c5058bee9f",
+    "agent-core/openjiuwen/rsi/harness_rsi/evaluator/requirement_results.py": "29cb3e66bcdc83cb2e7d7d018ecf8be44fb4456003940570b45a91808e754bc6",
+    "agent-core/openjiuwen/rsi/harness_rsi/data_loader/grading_contract.py": "4630e613fb653533156edf3eeeaab8668282d68dcb344b9829a46dce3bb8b2b8",
+    "agent-core/tests/unit_tests/rsi/test_evaluator_agent.py": "84d9e8557ca6556668a6449c36b86e6d8c37265e9ce054722ccee71e52375b81",
+    "agent-core/tests/unit_tests/rsi/test_weighted_judge_contract.py": "d890faa0da884800c269dafc3caf643d6ef9328a6d58f039ef5aa8b7b0e5a8e5",
+    "jiuwenswarm/jiuwenswarm/agents/harness/common/rsi/worker.py": "da2dec17e683040df4ad26ea4b267ad6983179b192fbd66fcb112f303b7d1008"
+  },
+  "scoring": {
+    "fixture": "test_evaluator_agent._case/_output: total present, units missing; controlled verdict",
+    "continuous_score": 0.5,
+    "normalized": {
+      "overall_reason": "One requirement is missing",
+      "overall_score": 0.5,
+      "base_score": 0.5,
+      "penalty_mode": "ceiling",
+      "total_deduction": 0.0,
+      "behaviors": [
+        {
+          "id": "rubric_001",
+          "score": 1.0,
+          "reason": "Observed in response",
+          "evidence": "response: total is present but no units are stated",
+          "description": "Include a total",
+          "weight": 1.0
+        },
+        {
+          "id": "rubric_002",
+          "score": 0.0,
+          "reason": "Observed in response",
+          "evidence": "response: total is present but no units are stated",
+          "description": "Include the units",
+          "weight": 1.0
+        }
+      ],
+      "forbidden_hits": [],
+      "dimensions": {
+        "per_behavior_scores": {
+          "rubric_001": 1.0,
+          "rubric_002": 0.0
+        },
+        "low_score_behaviors": [
+          "rubric_002"
+        ],
+        "avg_behavior_score": 0.5,
+        "behavior_count": 2,
+        "pass_count": 1,
+        "fail_count": 1,
+        "behavior_diagnostics": {
+          "rubric_001": {
+            "reason": "Observed in response",
+            "failure_reason": "",
+            "evidence": "response: total is present but no units are stated"
+          },
+          "rubric_002": {
+            "reason": "Observed in response",
+            "failure_reason": "Observed in response",
+            "evidence": "response: total is present but no units are stated"
+          }
+        },
+        "triggered_forbidden_behaviors": []
+      }
+    },
+    "requirement_results": {
+      "schema_version": 1,
+      "items": [
+        {
+          "requirement_id": "rubric_001",
+          "group": "requirement",
+          "passed": true,
+          "score": 1.0,
+          "evidence": "response: total is present but no units are stated",
+          "status": "",
+          "source": "llm_as_judge.behaviors"
+        },
+        {
+          "requirement_id": "rubric_002",
+          "group": "requirement",
+          "passed": false,
+          "score": 0.0,
+          "evidence": "response: total is present but no units are stated",
+          "status": "",
+          "source": "llm_as_judge.behaviors"
+        }
+      ]
+    },
+    "missing_criterion_rejected": "behaviors must score every supplied ID exactly once, with no additional IDs",
+    "weighted_test_fixture": {
+      "subtract": 0.7000000000000001,
+      "ceiling": 0.8,
+      "untrusted_model_weight_ignored": true
+    },
+    "not_executed": "LlmAsJudgeJudger, CaseRunner, threshold-to-JudgeResult conversion, real LLM"
+  },
+  "cancellation": {
+    "outer_cancelled": true,
+    "inner_done_after_outer_cancel": false,
+    "inner_cancelled_after_outer_cancel": false,
+    "slot_reference_removed": true,
+    "inner_registered_as_winding_down": false,
+    "controlled_inner_released_and_awaited_after_check": true,
+    "not_executed": "RsiWorker.cancel/store/Provider/real engine; this checks the original outer coroutine only"
+  },
+  "result": "pass"
+}

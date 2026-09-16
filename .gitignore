@@ -1,0 +1,21 @@
+# Cloned implementation repositories and exported source trees
+/HarnessX/
+/HarnessForge/
+/sia/
+/continual-harness/
+/reskill/
+/MetaClaw/
+/agent-core/
+/agent-protocol/
+/jiuwenswarm/
+/HELIX/
+/dgm/
+/code-snapshots/
+# Local runtime and credentials
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.env
+.env.*

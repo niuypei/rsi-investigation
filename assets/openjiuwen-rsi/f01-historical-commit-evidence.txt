@@ -1,0 +1,124 @@
+F01 historical evidence: verbatim local Git commit messages
+Repository: agent-core
+Reviewed HEAD: 13d226d91ccc1ff4c041e984fb6aa90de6c5e0ff
+Extraction: git show -s --format=commit:%H%ncommit_date:%cI%nsubject:%s%n%n%b <revision>
+Evidence type: author-reported historical validation, not this session reproduction.
+
+commit:6705856618e76a7c179730bbcaeb99bd142bbca2
+commit_date:2026-09-07T22:12:53+08:00
+subject:fix(rsi): Align and optimize registry and native Plugin loading
+
+Paired: [GitHub #1195](https://github.com/openJiuwen-ai/agent-core/pull/1195) ↔ [GitCode !2676](https://gitcode.com/openJiuwen/agent-core/merge_requests/2676)
+
+## 改动内容
+- 修复 RSI 修改 sidecar 注册表后，原生 manifest.json 加载器仍读取旧资源声明的问题。
+- 在私有优化副本中初始化 Prompt/Skill/Tool/Rail 注册表，验证前将编辑结果同步到 JSON 清单，保留元数据及 Skill 加载模式。
+- 兼容 canonical YAML 初始 Harness，避免被删除的根清单资源通过合并重新出现；原始 H0 不变。
+- 增加资源增删、路径搬迁、下一轮复制和错误注册表的回归测试。
+
+## 范围与兼容性
+只包含本次插件对齐的 5 个文件；此前 Analyzer/控制器等改动已在目标分支，不重复提交。没有修改 Epoch/Batch 算法、公共引擎接口或模型配置，不包含密钥、实验数据及缓存。
+
+## 验证
+- Plugin manifest、Member Optimizer、语义生成和路径布局定向测试：183 passed。
+- 修改文件 Ruff check 通过；新增模块和测试 Pylint 通过，Ruff format 通过。
+- 配合 jiuwenswarm 改动，三个内置插件经真实 DeepAgent 加载验证，优化包安装、恢复及失败回滚验证通过。这是加载闭环验证，不是模型提分验收。
+
+## 配套提交
+jiuwenswarm 个人分支 AFSDFASD/jiuwenswarm:rsi-plugin-alignment-20260907 -> openJiuwen/jiuwenswarm:feature/rsi。建议先合入本引擎 PR，再更新服务的 openjiuwen 依赖并合入服务 PR。
+
+<!-- bot4-pr-sync-meta
+schema_version: 1
+source: gitcode
+gitcode_repo: openJiuwen/agent-core
+gitcode_mr: 2676
+github_repo: openJiuwen-ai/agent-core
+github_pr: 1195
+github_branch: sync/pr-2676
+-->
+
+## 2026-09-07 追加更新：完整 H0 与 SWE 评测环境
+
+提交：`bfdea1fb2`。本节扩展最初的插件对齐范围，新增相关代码、说明和测试。
+
+- 支持 H0 全量评测开始前发出根节点及进度，完成后立即推送冻结的基线分数；基线评分为 0 时也正常返回。
+- H0 不计入 max_iteration，后续仍按原 Epoch/Batch 流程优化；已完成基线的续跑不重复评测。
+- Windows SWE 官方评分器支持 SWEBENCH_WSL_DISTRO / SWEBENCH_WSL_PYTHON，避免服务误用未安装 swebench 的系统 Python。逐题显式配置优先，Linux 原有路径不变。
+- 不新增或改动公开接口字段，不提交本机路径配置、凭据、数据集或缓存。
+
+### 配套服务改动，需一起部署
+
+https://gitcode.com/openJiuwen/jiuwenswarm/merge_requests/6196 ，提交 `e2129bd6`：新建 Harness 任务启用完整 H0；通过现有 progress.baseline、report.baseline 和 ROOT.score 返回前端；旧任务恢复保留原协议。
+
+**只合入本 PR 不会自动开启前端的完整 H0。** 需要一起合入配套服务 PR，并更新运行服务使用的 agent-core 依赖。两处代码分别属于两个仓库，不能塞入同一仓库的 PR。
+
+### 本次验证
+
+- 引擎控制器及 SWE 相关测试：113 passed。
+- Ruff check / format check 与 git diff --check 通过。本机没有 make，未执行完整 make check。
+- 使用已生成的补丁实际跑通官方 SWE Docker 评分器。本次验证不代表优化提分。
+- 当前正在运行的实验未停止或改写；服务重启后新建任务生效。
+
+
+commit:c679ea135dea6d514d64df528fd21cf18772caca
+commit_date:2026-09-09T16:18:23+08:00
+subject:fix(rsi): recover judge output and isolate case resource cleanup
+
+Paired: [GitHub #1246](https://github.com/openJiuwen-ai/agent-core/pull/1246) ↔ [GitCode !2714](https://gitcode.com/openJiuwen/agent-core/merge_requests/2714)
+
+## 修改范围
+- Judge 兼容解释文字中的唯一完整 JSON 代码块；仍拒绝截断、多份 JSON、重复键和非有限值，不猜测或补写评分。
+- 格式重试带上原始输出和具体校验错误，记录逐次错误；保持冻结证据、评分标准和重试次数。
+- Case 结束不再调用全局 Runner.stop()，仅清理本 Agent 的任务资源、工具和自有 SysOperation，避免旧任务收尾清空其他 Case/Judge 的工具。
+- 添加解析、重试诊断及正常结束/异常/取消时资源隔离测试。
+
+不改优化逻辑、0.8 门槛、既定接口、load_plugin 或 Swarm 调度。仅包含 3 个生产文件及 2 个测试文件，无 docs/examples、密钥、配置或实验产物。此前字段兼容修复已由 !2709 合入，本 PR 基于最新 feat/rsi。
+
+## 验证
+- 提交分支相关单测：168 passed, 1 skipped。
+- 失败原始回复独立回放及当前 deepseek-v4-pro 真实 Judge 调用通过，原实验评分未修改。
+- 修复后运行约 30 分钟：5 题 H0 完成，进入 Epoch 1 全量评测；一次格式错误经重试恢复，未发现新的工具实例丢失或终态 Judge 解析故障。这是链路验证，不等同优化验收通过。
+- git diff --check 和 Ruff E9,F,I,B023,FURB167 检查通过。Windows 未安装 make，完整 make check 未运行；全规则 Ruff 仍有原文件历史告警，未做无关清理。CI 待流水线验证。
+
+<!-- bot4-pr-sync-meta
+schema_version: 1
+source: gitcode
+gitcode_repo: openJiuwen/agent-core
+gitcode_mr: 2714
+github_repo: openJiuwen-ai/agent-core
+github_pr: 1246
+github_branch: sync/pr-2714
+-->
+
+
+commit:e5c818e2b9295e6b30ad5a31ea03815cc61ffcd2
+commit_date:2026-09-10T10:27:34+08:00
+subject:fix(rsi): align evaluation concurrency, epoch evidence reuse and partial repair pipeline
+
+Paired: [GitHub #1274](https://github.com/openJiuwen-ai/agent-core/pull/1274) ↔ [GitCode !2739](https://gitcode.com/openJiuwen/agent-core/merge_requests/2739)
+
+## 改动
+- H0 与 Epoch 全量评测支持有上限的题间并发，优化仍串行；进度按完成数量汇总。
+- 后续 Epoch 使用当前 Harness 对应的最新全量评测结果；证据复用校验包含模型、评分协议与 Harness 身份，避免历史通过记录遮蔽最新失败。
+- 候选实际运行的能力类型、调用证据及失败反馈贯通 Analyzer/Improver；避免将普通交付失败误判为补丁修改失败。
+- 在原有修复预算内续修有局部进展的候选，隔离临时修复链与正式 current/best Harness，保留整条能力变更链。
+- 改进 Judge 证据读取与逐项评分说明，保持 0/1 正式分数及既有阈值；增强 Improver 自检要求。
+
+## 范围
+已合并最新 feat/rsi 并处理冲突。只提交相关引擎代码、运行时提示词和测试，不包含 docs/examples、模型配置、密钥或实验产物。不修改既定外部接口或原生 load_plugin。
+
+## 验证
+定向单测 326 passed、1 skipped（Windows 符号链接权限限制）；变更 Python 文件 Ruff E/F/I 检查通过，git diff --check 通过。此结果是工程回归验证，不代表多题提分或泛化验收通过。
+
+## 配套
+jiuwenswarm 个人分支 AFSDFASD/jiuwenswarm:rsi-runtime-alignment-20260910 合入 openJiuwen/jiuwenswarm:feature/rsi。提交工作在隔离 worktree 完成，未停止或重启当前实验。
+
+<!-- bot4-pr-sync-meta
+schema_version: 1
+source: gitcode
+gitcode_repo: openJiuwen/agent-core
+gitcode_mr: 2739
+github_repo: openJiuwen-ai/agent-core
+github_pr: 1274
+github_branch: sync/pr-2739
+-->

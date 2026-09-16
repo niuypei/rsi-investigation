@@ -1,0 +1,51 @@
+{
+  "verification_kind": "Direct calls to dataset functions and repository evaluator; constructed trace; no LLM, harness rollout, evolution or training executed",
+  "case_id": 161,
+  "question": "What is the year following when the publisher of Hürriyet Daily News was founded?",
+  "tool_results": [
+    {
+      "publisher": "Doğan Media"
+    },
+    "1997",
+    {
+      "subsequent_years": [
+        1998
+      ]
+    }
+  ],
+  "wrong_type_result": {
+    "error": "Invalid input: current_year must be an integer."
+  },
+  "score_with_constructed_correct_trace": {
+    "judgement": "correct",
+    "raw": null,
+    "error": null,
+    "pred_answer": "1998",
+    "labeled_answer": "1998",
+    "has_valid_answer": 1,
+    "answer_correct": 1,
+    "path_score": 1.0,
+    "solved_subtasks": [
+      "1997",
+      "1998",
+      "doğan media"
+    ],
+    "subtask_count": 3,
+    "action_count": 3,
+    "tool_call_count": 3
+  },
+  "score_with_answer_only": {
+    "judgement": "correct",
+    "raw": null,
+    "error": null,
+    "pred_answer": "1998",
+    "labeled_answer": "1998",
+    "has_valid_answer": 1,
+    "answer_correct": 1,
+    "path_score": 0.0,
+    "solved_subtasks": [],
+    "subtask_count": 3,
+    "action_count": 0,
+    "tool_call_count": 0
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "checked_at_utc": "2026-09-16T08:57:32.150295+00:00",
+  "revision": "Remaining seven full-document call-chain rewrites following accepted SIA standard",
+  "scope": "Five source walkthroughs and two paper-protocol/gap documents rewritten; index, coverage and overview code-audit synchronized. Static verification only.",
+  "documents": [
+    {
+      "path": "walkthroughs/CONTINUAL_HARNESS_CODE_WALKTHROUGH.md",
+      "lines": 142,
+      "local_link_occurrences": 76,
+      "sha256": "8bb05ea30eb87d92608d8aa61bfdfa6e65cf662af29d2a06f6515c8359338d3f"
+    },
+    {
+      "path": "walkthroughs/CO_HARNESS_CODE_WALKTHROUGH.md",
+      "lines": 56,
+      "local_link_occurrences": 1,
+      "sha256": "0fd11f8dbab595976eaaf61928ed43bef918a46f6ef3ac1d3feb60bd7b507c2e"
+    },
+    {
+      "path": "walkthroughs/HARNESSFORGE_CODE_WALKTHROUGH.md",
+      "lines": 132,
+      "local_link_occurrences": 47,
+      "sha256": "52dce225605c88e4b4568e898bc8f1e883c22da9c9a85a00b39262de104514e0"
+    },
+    {
+      "path": "walkthroughs/HARNESSX_CODE_WALKTHROUGH.md",
+      "lines": 120,
+      "local_link_occurrences": 71,
+      "sha256": "cebc809a84cced48d8548762afad873a96a6f57c9998aa4f3acf4cfca947a70d"
+    },
+    {
+      "path": "walkthroughs/HASE_CODE_WALKTHROUGH.md",
+      "lines": 56,
+      "local_link_occurrences": 1,
+      "sha256": "d8db4167e39283c1d29c752b99d8002e111715c873fbb16a3a91eff04d521681"
+    },
+    {
+      "path": "walkthroughs/METACLAW_CODE_WALKTHROUGH.md",
+      "lines": 161,
+      "local_link_occurrences": 70,
+      "sha256": "3c07e3c51a2c4f8e21bf1363fcbcd284b2209a42e1cc09e7765643e3ed0f7303"
+    },
+    {
+      "path": "walkthroughs/README.md",
+      "lines": 105,
+      "local_link_occurrences": 43,
+      "sha256": "fe179624c2c7f49fa0446f1383a6b32c50222b8c37f321a264e942200040cf9f"
+    },
+    {
+      "path": "walkthroughs/RESKILL_CODE_WALKTHROUGH.md",
+      "lines": 153,
+      "local_link_occurrences": 78,
+      "sha256": "93cab2286d604711638c6c4c82c7b0d4bac907e0ba80751f279396dd472ea65d"
+    },
+    {
+      "path": "walkthroughs/REWRITE_COVERAGE.md",
+      "lines": 48,
+      "local_link_occurrences": 10,
+      "sha256": "b1dbdf0f75088606e18ddaad857703562ba3ef9e17eae7645685178f0116732c"
+    },
+    {
+      "path": "walkthroughs/SIA_CODE_WALKTHROUGH.md",
+      "lines": 256,
+      "local_link_occurrences": 102,
+      "sha256": "ae307a0edc9db92f5424775f8f55f109ea2cabc1da237f590f09bb087b538ca9"
+    },
+    {
+      "path": "MODEL_HARNESS_COEVOLUTION.md",
+      "lines": 272,
+      "local_link_occurrences": 14,
+      "sha256": "2c113a9b1ecde2aa1d33d046a1c5e347e088c642407ad54efd3cf10afe5b1dd1"
+    },
+    {
+      "path": "RESEARCH_REQUIREMENTS.md",
+      "lines": 68,
+      "local_link_occurrences": 0,
+      "sha256": "f0550a8dd8a447ab94c111bf471e1a788519f503bd290f643c253d7fbe267dfd"
+    }
+  ],
+  "project_documents": 8,
+  "rewritten_project_documents": 7,
+  "total_local_link_occurrences": 513,
+  "repositories": [
+    {
+      "path": "HarnessX",
+      "commit": "bf5f199ee65034d55db0c536e582f1e7c8abf669",
+      "origin": "git@github.com:Darwin-Agent/HarnessX.git",
+      "status": "?? docs/code-architecture-analysis.zh-CN.md",
+      "matches_recorded_baseline": true
+    },
+    {
+      "path": "sia",
+      "commit": "7fd04d07bd2f47a110115674432b73622ebf7455",
+      "origin": "git@github.com:hexo-ai/sia.git",
+      "status": "",
+      "matches_recorded_baseline": true
+    },
+    {
+      "path": "continual-harness",
+      "commit": "bbab97ad73e460b7cd7c08527d10ced30cc03fbe",
+      "origin": "git@github.com:sethkarten/continual-harness.git",
+      "status": "",
+      "matches_recorded_baseline": true
+    },
+    {
+      "path": "HarnessForge",
+      "commit": "05b3ecadb3c9a7a938f75129ea22b8f2b36cf289",
+      "origin": "https://github.com/mingju-c/HarnessForge.git",
+      "status": "",
+      "matches_recorded_baseline": true
+    },
+    {
+      "path": "reskill",
+      "commit": "a25e2534fcdef182f6684e4d24fa8a916e085ba5",
+      "origin": "https://github.com/amazon-science/reskill.git",
+      "status": "",
+      "matches_recorded_baseline": true
+    },
+    {
+      "path": "MetaClaw",
+      "commit": "922caf3a1cd093fb316e95183a8acc8aa47b3b21",
+      "origin": "https://github.com/aiming-lab/MetaClaw.git",
+      "status": "",
+      "matches_recorded_baseline": true
+    },
+    {
+      "path": "reskill/verl",
+      "commit": "d62da4950573d7a4b7ef2362337952e7ab59e78d",
+      "origin": "https://github.com/volcengine/verl.git",
+      "status": "",
+      "matches_recorded_baseline": true
+    }
+  ],
+  "snapshot_commit": "2a74aa2bcf17d019844a8b86e3748ed566aede69",
+  "snapshot_files_byte_checked": 25,
+  "sia_body_unchanged": true,
+  "sia_sha256": "ae307a0edc9db92f5424775f8f55f109ea2cabc1da237f590f09bb087b538ca9",
+  "diagrams": [
+    {
+      "document": "walkthroughs/CONTINUAL_HARNESS_CODE_WALKTHROUGH.md",
+      "diagram": 1,
+      "type": "sequenceDiagram",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "walkthroughs/CO_HARNESS_CODE_WALKTHROUGH.md",
+      "diagram": 1,
+      "type": "flowchart TD",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "walkthroughs/HARNESSFORGE_CODE_WALKTHROUGH.md",
+      "diagram": 1,
+      "type": "sequenceDiagram",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "walkthroughs/HARNESSX_CODE_WALKTHROUGH.md",
+      "diagram": 1,
+      "type": "sequenceDiagram",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "walkthroughs/HASE_CODE_WALKTHROUGH.md",
+      "diagram": 1,
+      "type": "flowchart TD",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "walkthroughs/METACLAW_CODE_WALKTHROUGH.md",
+      "diagram": 1,
+      "type": "sequenceDiagram",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "walkthroughs/RESKILL_CODE_WALKTHROUGH.md",
+      "diagram": 1,
+      "type": "sequenceDiagram",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "walkthroughs/SIA_CODE_WALKTHROUGH.md",
+      "diagram": 1,
+      "type": "sequenceDiagram",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "walkthroughs/SIA_CODE_WALKTHROUGH.md",
+      "diagram": 2,
+      "type": "sequenceDiagram",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    },
+    {
+      "document": "MODEL_HARNESS_COEVOLUTION.md",
+      "diagram": 1,
+      "type": "flowchart TD",
+      "rendered": false,
+      "review": "Control branches checked; participants and source calls manually reviewed. Flowcharts are explicitly paper-level."
+    }
+  ],
+  "external_sources_note": "Reaccessed Continual Harness, HarnessForge, ReSkill, MetaClaw, Co-Harness and HASE papers. Co-Harness and HASE targeted official-code searches still did not identify a confirmed official implementation. No claim of exhaustive absence.",
+  "models_services_or_training_executed": false,
+  "previous_functional_checks_rerun": false,
+  "source_or_example_patch_modified": false,
+  "diagram_rendering_performed": false,
+  "errors": [],
+  "result": "pass"
+}

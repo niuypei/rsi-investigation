@@ -1,0 +1,65 @@
+{
+  "mode": "categorized",
+  "story": [
+    {
+      "id": "autonomous_01_plan_more_objectives",
+      "description": "You have reached the end of the story objectives currently available. Create more objectives to keep progressing through the game.",
+      "completed": false,
+      "current": true
+    },
+    {
+      "id": "get_starter",
+      "description": "Choose a starter Pokemon in Prof. Oak's Lab.",
+      "completed": true,
+      "current": false
+    },
+    {
+      "id": "meet_oak",
+      "description": "Try to leave Pallet Town through the tall grass to the north.",
+      "completed": true,
+      "current": false
+    },
+    {
+      "id": "red_house_exit",
+      "description": "Leave Red's house.",
+      "completed": true,
+      "current": false
+    },
+    {
+      "id": "red_room_exit",
+      "description": "Leave Red's room by taking the stairs.",
+      "completed": true,
+      "current": false
+    }
+  ],
+  "battling": [
+    {
+      "id": "rival_battle_1",
+      "description": "Win the first battle against your rival in Oak's Lab.",
+      "completed": false,
+      "current": true
+    }
+  ],
+  "dynamics": [
+    {
+      "id": "pc_potion",
+      "description": "Withdraw the Potion from Red's PC.",
+      "completed": true,
+      "current": false
+    }
+  ],
+  "categorized_status": {
+    "story": {
+      "current_index": 4,
+      "total": 5
+    },
+    "battling": {
+      "current_index": 0,
+      "total": 1
+    },
+    "dynamics": {
+      "current_index": 1,
+      "total": 1
+    }
+  }
+}

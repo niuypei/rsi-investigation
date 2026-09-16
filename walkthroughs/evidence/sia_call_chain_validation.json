@@ -1,0 +1,48 @@
+{
+  "checked_at_utc": "2026-09-16T08:10:32.700667+00:00",
+  "scope": "SIA whole-document call-chain rewrite; only SIA references in index/coverage updated",
+  "documents": [
+    {
+      "path": "walkthroughs/SIA_CODE_WALKTHROUGH.md",
+      "lines": 256,
+      "local_link_occurrences": 102
+    },
+    {
+      "path": "walkthroughs/README.md",
+      "lines": 105,
+      "local_link_occurrences": 42
+    },
+    {
+      "path": "walkthroughs/REWRITE_COVERAGE.md",
+      "lines": 52,
+      "local_link_occurrences": 10
+    }
+  ],
+  "source_commit": "7fd04d07bd2f47a110115674432b73622ebf7455",
+  "source_status": "",
+  "paper": {
+    "url": "https://arxiv.org/html/2605.27276v1",
+    "accessed_this_turn": true,
+    "sections": [
+      "4.3",
+      "5.1",
+      "5.2",
+      "5.3",
+      "6.2",
+      "6.3.1"
+    ]
+  },
+  "diagram_count": 2,
+  "diagram_check": "Manual call/return review and balanced sequence branches; not rendered",
+  "checks": [
+    "Local references exist and line bounds valid",
+    "Markdown fences and sequence branch nesting balanced",
+    "SIA HEAD and working tree unchanged",
+    "Caller/callee, subprocess waits, ignored evaluation return, feedback condition, fixed focus and checkpoint handoff reviewed against source"
+  ],
+  "models_services_or_training_executed": false,
+  "example_patch_applied_to_source": false,
+  "errors": [],
+  "result": "pass",
+  "document_sha256": "ae307a0edc9db92f5424775f8f55f109ea2cabc1da237f590f09bb087b538ca9"
+}
